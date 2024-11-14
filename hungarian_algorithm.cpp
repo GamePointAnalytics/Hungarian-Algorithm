@@ -1,6 +1,4 @@
-//This is an C++ implementation of the Hungarian Algorithm (aka Kuhn–Munkres Algorithm).
-// 
-// Stephen Zhu
+//This is a C++ implementation of the Hungarian Algorithm (aka Kuhnâ€“Munkres Algorithm).
 // March 2022
 
 
@@ -34,7 +32,7 @@ int* hungarian_algorithm(int** cost, int N) {
 		}
 	}
 
-	// Find smallest values per column 
+	// Find the smallest values per column 
 	for (int j = 0; j < N; j++) {
 		for (int i = 0; i < N; i++) {
 			if (cost[i][j] < col_min[j]) {
@@ -255,7 +253,7 @@ int* hungarian_algorithm(int** cost, int N) {
 		}
 	}
 
-	// The result is in assigned_zero_coord. The best the cow i can hope for is gift j. 
+	// The result is in assigned_zero_coord. 
 	int* result = new int[N];
 
 	set<pair<int, int>>::iterator it = assigned_zero_coord.begin();
