@@ -13,8 +13,12 @@ using namespace std;
 // A good python tutorial: https://python.plainenglish.io/hungarian-algorithm-introduction-python-implementation-93e7c0890e15
 
 int* hungarian_algorithm(int** cost, int N) {
-	int* row_min = new int[N] { INT_MAX };
-	int* col_min = new int[N] { INT_MAX };
+	int* row_min = new int[N];
+	int* col_min = new int[N];
+	for (int i = 0; i < N; i++) {
+		row_min[i] = INT_MAX;
+		col_min[i] = INT_MAX;
+	}
 
 	// Find the smallest value for each row
 	for (int i = 0; i < N; i++) {
@@ -223,7 +227,7 @@ int* hungarian_algorithm(int** cost, int N) {
 
 		// Otherwise, find the smallest number in rows where marked_row[row] == true and 
 		// marked_col[col] = false.
-		int smallest_val = N + N;
+		int smallest_val = INT_MAX;
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
 				if ((marked_row[i] == true) && (marked_col[j] == false)) {
